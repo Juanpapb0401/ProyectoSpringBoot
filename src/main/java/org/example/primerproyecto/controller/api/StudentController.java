@@ -26,19 +26,17 @@ public class StudentController {
     }
 
     @PostMapping()
-    public ResponseEntity<?> registerStudent(@RequestBody StudentDTO studentDTO) {
+    public ResponseEntity<StudentDTO> registerStudent(@RequestBody StudentDTO studentDTO) {
         var student = studentService.createStudent(studentDTO);
         return ResponseEntity.status(201).body(student);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateStudent(@PathVariable Long id, @RequestBody StudentDTO studentDTO) {
-        try {
-            StudentDTO updatedStudent = studentService.updateStudent(id, studentDTO);
-            return ResponseEntity.ok(updatedStudent);
-        } catch (RuntimeException e) {
-            return ResponseEntity.status(404).body(e.getMessage());
-        }
+    public ResponseEntity<StudentDTO> updateStudent(@PathVariable Long id, @RequestBody StudentDTO studentDTO) {
+
+        StudentDTO updatedStudent = studentService.updateStudent(id, studentDTO);
+        return ResponseEntity.ok(updatedStudent);
+
     }
 
     @GetMapping("/program/{program}")

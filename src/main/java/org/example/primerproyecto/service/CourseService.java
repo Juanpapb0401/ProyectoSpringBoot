@@ -32,4 +32,6 @@ public interface CourseService {
 
     Page<CourseDTO> findByNameContaining(String name, int page);
 
+    List<CourseDTO> getAllCoursesPratica();
+
 }

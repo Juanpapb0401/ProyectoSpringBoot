@@ -1,8 +1,11 @@
 package org.example.primerproyecto.dto;
 
 public class CourseDTO {
+
     private long id;
+
     private String name;
+
     private Long professorId; // solo el ID del profesor
 
     //Getters y Setters

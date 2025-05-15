@@ -76,6 +76,11 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    public List<CourseDTO> getAllCoursesPratica() {
+        return courseRepository.findAll().stream().map(entity -> courseMapper.toDTO(entity)).collect(Collectors.toList());
+    }
+
+    @Override
     public List<CourseDTO> listCourseOfStudent(long id) {
         var enrollments = enrollmentRepository.findByStudent_Id(id);
         return enrollments.stream().map(enrollment -> courseMapper.toDTO(enrollment.getCourse())).toList();
