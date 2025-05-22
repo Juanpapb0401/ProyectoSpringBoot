@@ -84,6 +84,7 @@ public class WebSecurityConfig {
                         auth -> auth
                                 .requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
                                 .requestMatchers("/signup").permitAll()
+                                .requestMatchers("/ws/chat").permitAll() // Allow WebSocket endpoint
                                 .requestMatchers("/course", "/home", "/student").authenticated()
                 ).formLogin(login -> login
                         .loginPage("/login")
